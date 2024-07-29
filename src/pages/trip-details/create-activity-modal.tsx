@@ -12,6 +12,7 @@ export function CreateActivityModal({
   closeCreateActivityModal,
 }: CreateActivityModalProps) {
   const { tripId } = useParams()
+
   function createActivity(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
@@ -25,7 +26,7 @@ export function CreateActivityModal({
       occurs_at,
     })
 
-    closeCreateActivityModal()
+    window.document.location.reload()
   }
 
   return (
@@ -61,7 +62,7 @@ export function CreateActivityModal({
               <Mail className="text-zinc-400 size-5" />
               <input
                 type="datetime-local"
-                name="occurs-at"
+                name="occurs_at"
                 placeholder="Data e horário da atividade"
                 className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
               />
