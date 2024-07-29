@@ -13,7 +13,7 @@ export function CreateActivityModal({
 }: CreateActivityModalProps) {
   const { tripId } = useParams()
 
-  function createActivity(event: FormEvent<HTMLFormElement>) {
+  async function createActivity(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     const data = new FormData(event.currentTarget)
@@ -21,7 +21,7 @@ export function CreateActivityModal({
     const title = data.get('title')?.toString()
     const occurs_at = data.get('occurs_at')?.toString()
 
-    api.post(`/trips/${tripId}/activities`, {
+    await api.post(`/trips/${tripId}/activities`, {
       title,
       occurs_at,
     })
